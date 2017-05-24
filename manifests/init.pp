@@ -1,3 +1,5 @@
+#$install_dummydpm   = $glexecwn::params::install_dummydpm,
+
 class glexecwn (
   $argus_port         = $glexecwn::params::argus_port,
   $argus_server       = $glexecwn::params::argus_server,
@@ -12,7 +14,6 @@ class glexecwn (
   $gridmapdir         = $glexecwn::params::gridmapdir,
   $grid_env_location  = $glexecwn::params::grid_env_location,
   $gt_proxy_mode      = $glexecwn::params::gt_proxy_mode,
-  $install_dummydpm   = $glexecwn::params::install_dummydpm,
   $install_emi_wn     = $glexecwn::params::install_emi_wn,
   $myproxy_server     = $glexecwn::params::myproxy_server,
   $lcg_gfal_infosys   = $glexecwn::params::lcg_gfal_infosys,
@@ -22,15 +23,18 @@ class glexecwn (
   $supported_vos      = $glexecwn::params::supported_vos,
   $user_white_list    = $glexecwn::params::user_white_list,) inherits glexecwn::params {
   case $::operatingsystem {
-    'RedHat', 'SLC', 'SL', 'Scientific' : {
-      require fetchcrl
+    'RedHat', 'SLC', 'SL', 'Scientific', 'CentOS' : {
+#      require fetchcrl
+# TODO -> Add ciemat-fetchcrl
 
       class { 'glexecwn::repositories': ensure => $emi_repos_ensure, emi_version => $emi_version, }
+      
+# TODO -> Add repo UMD-4
 
       class { 'glexecwn::install':
         emi_version        => $emi_version,
         glexec_permissions => $glexec_permissions,
-        install_dummydpm   => $install_dummydpm,
+#        install_dummydpm   => $install_dummydpm,
         install_emi_wn     => $install_emi_wn,
       }
 
