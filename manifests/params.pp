@@ -26,7 +26,8 @@ class glexecwn::params {
   $lcg_location       = hiera('lcg_location', '/usr')
 
   $site_name          = hiera('site_name', 'unset')
-  $srm_path           = hiera('srm_path', '/opt/d-cache/srm')
+#  $srm_path           = hiera('srm_path', '/opt/d-cache/srm')
+  $subcluster_name    = hiera('subcluster_name', 'unset')
   $supported_vos      = hiera('supported_vos', [
     'atlas',
     'cms',
