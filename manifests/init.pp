@@ -20,6 +20,7 @@ class glexecwn (
   $lcg_gfal_infosys   = $glexecwn::params::lcg_gfal_infosys,
   $lcg_location       = $glexecwn::params::lcg_location,
   $site_name          = $glexecwn::params::site_name,
+  $subcluster_name    = $glexecwn::params::subcluster_name,
   $supported_vos      = $glexecwn::params::supported_vos,
   $user_white_list    = $glexecwn::params::user_white_list,) inherits glexecwn::params {
   case $::operatingsystem {
@@ -51,7 +52,7 @@ class glexecwn (
         lcg_location       => $lcg_location,
         myproxy_server     => $myproxy_server,
         site_name          => $site_name,
-        srm_path           => $srm_path,
+#        srm_path           => $srm_path,
         supported_vos      => $supported_vos,
       }
 
@@ -62,6 +63,7 @@ class glexecwn (
       }
 
       class { 'glexecwn::wninfo':
+        subcluster_name  => $subcluster_name,
       }
 
       Class['glexecwn::install'] -> Class['glexecwn::config' ]
