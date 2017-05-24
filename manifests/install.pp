@@ -2,13 +2,13 @@
 # install the emi glexec enabled worker node
 #
 class glexecwn::install (
-  $install_dummydpm   = $glexecwn::params::install_dummydpm,
+# $install_dummydpm   = $glexecwn::params::install_dummydpm,
   $install_emi_wn     = $glexecwn::params::install_emi_wn,
   $glexec_permissions = $glexecwn::params::glexec_permissions,
   $emi_version        = $glexecwn::params::emi_version,) {
-  if $install_dummydpm == true {
-    package { dummydpm: ensure => present, }
-  }
+#  if $install_dummydpm == true {
+#    package { dummydpm: ensure => present, }
+#  }
 
   # install worker node software
   # according to
