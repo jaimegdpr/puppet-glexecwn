@@ -1,4 +1,5 @@
 #$install_dummydpm   = $glexecwn::params::install_dummydpm,
+#$srm_path           = $glexecwn::params::srm_path,
 
 class glexecwn (
   $argus_port         = $glexecwn::params::argus_port,
@@ -19,7 +20,6 @@ class glexecwn (
   $lcg_gfal_infosys   = $glexecwn::params::lcg_gfal_infosys,
   $lcg_location       = $glexecwn::params::lcg_location,
   $site_name          = $glexecwn::params::site_name,
-  $srm_path           = $glexecwn::params::srm_path,
   $supported_vos      = $glexecwn::params::supported_vos,
   $user_white_list    = $glexecwn::params::user_white_list,) inherits glexecwn::params {
   case $::operatingsystem {
