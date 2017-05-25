@@ -16,7 +16,7 @@ class glexecwn::env (
     owner => 'root',
     group => 'root',
     mode  => '0755',
-    warn  => '# $gridenvfile is managed by Puppet env.pp.\n#Any changes in here will be overwritten',
+    warn  =>  true,
   }
 
   concat::fragment { 'grid-env header':
