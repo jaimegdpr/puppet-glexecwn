@@ -40,7 +40,7 @@ class glexecwn::emi_wn {
         default:
           {
             package {emi-wn:
-              ensure => present,
+               ensure => present,
             }
           }
     }

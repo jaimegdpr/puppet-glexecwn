@@ -16,7 +16,7 @@ class glexecwn::env (
     owner => 'root',
     group => 'root',
     mode  => '0755',
-    warn  =>  true,
+    warn  => true,
   }
 
   concat::fragment { 'grid-env header':

@@ -1,4 +1,6 @@
-class glexecwn::wninfo(){
+class glexecwn::wninfo(
+  $subcluster_name    = $glexecwn::params::subcluster_name,
+){
   file {'/etc/glite-wn-info':
     ensure => directory,
     owner => 'root',
