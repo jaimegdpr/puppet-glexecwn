@@ -2,7 +2,7 @@ class glexecwn::params {
   $argus_server       = hiera('argus_server', 'localhost')
   $argus_port         = hiera('argus_port', '8154')
 
-  $emi_version        = hiera('emi_version', 2)
+  $umd_version        = hiera('umd_version', 4)
 
   $glexec_location    = hiera('glexec_location', '/usr')
   $glexec_permissions = hiera('glexec_permissions', '6111')

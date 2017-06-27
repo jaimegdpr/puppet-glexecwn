@@ -4,8 +4,8 @@
 class glexecwn (
   $argus_port         = $glexecwn::params::argus_port,
   $argus_server       = $glexecwn::params::argus_server,
-  $emi_version        = $glexecwn::params::emi_version,
-  $emi_repos_ensure   = 'present',
+  $umd_version        = $glexecwn::params::umd_version,
+  $umd_repos_ensure   = 'present',
   $glexec_location    = $glexecwn::params::glexec_location,
   $glexec_permissions = $glexecwn::params::glexec_permissions,
   $glite_env_set      = $glexecwn::params::glite_env_set,
@@ -28,12 +28,12 @@ class glexecwn (
 #      require fetchcrl
 # TODO -> Add ciemat-fetchcrl
 
-      class { 'glexecwn::repositories': ensure => $emi_repos_ensure, emi_version => $emi_version, }
+      class { 'glexecwn::repositories': ensure => $umd_repos_ensure, umd_version => $umd_version, }
       
 # TODO -> Add repo UMD-4
 
       class { 'glexecwn::install':
-        emi_version        => $emi_version,
+        umd_version        => $umd_version,
         glexec_permissions => $glexec_permissions,
 #        install_dummydpm   => $install_dummydpm,
         install_emi_wn     => $install_emi_wn,
