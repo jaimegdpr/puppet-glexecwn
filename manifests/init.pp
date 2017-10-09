@@ -56,6 +56,8 @@ class glexecwn (
         supported_vos      => $supported_vos,
       }
 
+      include glexecwn::services 
+
       class { 'glexecwn::argus':
         argus_server    => $argus_server,
         argus_port      => $argus_port,
@@ -66,7 +68,7 @@ class glexecwn (
         subcluster_name  => $subcluster_name,
       }
 
-      Class['glexecwn::install'] -> Class['glexecwn::config' ]
+      Class['glexecwn::install'] -> Class['glexecwn::config'] -> Class['glexecwn::services']
     }
     default                     : {
       # There is some fedora configuration present but I can't actually get it
